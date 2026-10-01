@@ -64,6 +64,15 @@ default item_seleccionado = None   # objeto del inventario actualmente seleccion
 default busco_a = None   # "timor" o "nostrov"
 
 # ──────────────────────────────────────────
+#  VARIABLES — ruta escape solitario
+# ──────────────────────────────────────────
+
+define linterna = False
+define abrigo = False
+define comida = False
+define objetos_faltantes = 3
+
+# ──────────────────────────────────────────
 #  SEGUIMIENTO DE FINALES
 #  (habilita "Llamarlos a todos" en el hub "Con quien vas")
 # ──────────────────────────────────────────

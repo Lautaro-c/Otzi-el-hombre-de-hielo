@@ -49,12 +49,53 @@ label escape_solitario:
     prota "Si, volvere con ayuda pronto, lo prometo."
 
     narrador "Deberias preparar unas cosas, no es buena idea salir con las manos vacias."
-    narrador "Seccion Point & Click hasta que se decida salir"
 
-    # TODO: acá va la sección Point & Click de preparativos; el material
-    # original no la detalla, así que por ahora se pasa directo a la salida.
+    $ objetos_faltantes = 3
+    $ linterna = False
+    $ abrigo = False
+    $ comida = False
 
-    jump salir_refugio_solitario
+    jump prepararse
+
+label prepararse:
+    scene bg sala_comun
+
+    call screen pnc_ts
+
+    jump expression _return
+
+label linterna:
+    $ objetos_faltantes -= 1
+    $ linterna = True
+
+    narrador "Agarraste una linterna."
+
+    if (objetos_faltantes == 0):
+        jump salir_refugio_solitario
+    else:
+        jump prepararse
+
+label abrigo:
+    $ objetos_faltantes -= 1
+    $ abrigo = True
+
+    narrador "Agarraste un abrigo invernal."
+
+    if (objetos_faltantes == 0):
+        jump salir_refugio_solitario
+    else:
+        jump prepararse
+
+label comida:
+    $ objetos_faltantes -= 1
+    $ comida = True
+
+    narrador "Agarraste comida para tu viaje."
+
+    if (objetos_faltantes == 0):
+        jump salir_refugio_solitario
+    else:
+        jump prepararse
 
 
 label salir_refugio_solitario:

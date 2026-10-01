@@ -62,3 +62,23 @@ screen pantalla_almacen():
         if energia > 0 and (not pulmon or not sangre_rara or not caries_encontradas):
             textbutton "Ir a revisar a Ötzi" action Return("sala_otzi")
         textbutton "Reagruparse con los demás" action Return("reagruparse")
+
+# P&C final timor solitario
+
+screen hudTS():
+    frame:
+        align (0.98, 0.02)
+        text "Por encontrar: [objetos_faltantes]"
+
+screen pnc_ts():
+    modal True
+    use hudTS
+
+    if objetos_faltantes > 0:
+        if not linterna:
+            use zona((330, 318, 125, 201), "Linterna", "linterna")
+        if not abrigo:
+            use zona((1350, 394, 50, 83), "Abrigo invernal", "abrigo")
+        if not comida:
+            use zona((784, 53, 64, 38), "Comida", "comida")
+        
