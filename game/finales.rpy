@@ -27,7 +27,7 @@
         return
 
     else:
-        show calisto decepsionada
+        show calisto decepcionada 
         calisto "No... no pude lograrlo. Ya es demasiado tarde."
         narrador "Se escucha como se rompe el hielo, un silencio se hace en la sala."
         narrador "Después un sinfín de gritos todos culpándose mutuamente, pero vos no lo haces, solo te culpas a vos mismo."
@@ -39,7 +39,7 @@
             calisto "Te odio."
         elif(relacion_calisto <= 0):
             narrador "En sus últimos momentos la Dra. Calisto solo quiere que sepas una cosa."
-            show calisto decepsionada
+            show calisto decepcionada 
             calisto "Tu victimismo y falta de valentía nos trajo hasta acá. Sos un cobarde."
         scene black with fade
         centered "Final malo ruta Dra. Calisto Escrito por Lautaro Puig Da Silva."
@@ -53,7 +53,7 @@ label ira_total:
         show calisto enojada
         calisto "¿Que te pasa a vos? Me tuviste 3 días perdiendo el tiempo, No puedo creer haberte escuchado, vos y tu pateti-"
     else:
-        show calisto decepsionada
+        show calisto decepcionada 
         calisto "¿Por que no hiciste nada estos últimos 2 días? Estábamos trabajando bien al principio pero fue como si de golpe te rindieras."
         prota "Es que esta situación era demasiado, no había nada que podíamos hacer. Entre el frio y la falta de luz, simplemente era imposible."
         show calisto enojada
@@ -66,7 +66,7 @@ label ira_total:
         show calisto enojada
         calisto "Te odio."
     elif(relacion_calisto <= 0):
-        show calisto decepsionada
+        show calisto decepcionada 
         calisto "Tu victimismo y falta de valentía nos trajo hasta acá. Sos un cobarde."
 
     scene black with fade

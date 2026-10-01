@@ -70,7 +70,7 @@ label primer_conflicto:
     timor "No lo entienden, ¡esta momia tiene una maldición! ¡Tenemos que terminar esto e irnos lo antes posible!"
     show nostrov enojado at right
     nostrov "¡¿Maldición?! Esto no es una película de terror señorita, ¡es la vida real!"
-    show calisto decepsionada at left
+    show calisto decepcionada at left
     calisto "..."
     show calisto sonriente at left
     calisto "Tu debes ser el nuevo. ¿Como fue el viaje?"

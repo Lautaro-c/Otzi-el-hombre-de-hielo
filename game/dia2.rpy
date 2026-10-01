@@ -15,7 +15,7 @@
         calisto "Okey sospechamos que Ötzi sufre de algún tipo de enfermedad, pero todavía no tenemos certeza de cual. Para encontrar la cura voy a necesitar equipamiento, deberíamos encontrarlo en el almacén. Vamos a buscarlo."
         jump almacen
     else:
-        show calisto decepsionada
+        show calisto decepcionada 
         calisto "No tenemos ni idea de que pasa con Ötzi, deberíamos ir e inspeccionarlo nuevamente ¿O preferís primero ir a buscar los suministros?"
         menu:
             "Ir al almacén de suministros":
@@ -35,7 +35,7 @@ label me_mentiste:
     calisto "Que las cosas salgan tan mal no estaba en ninguno de nuestros planes pero aca estamos y tenemos que resolverlo."
     show calisto canchera
     calisto "Entonces que vas a decidir ¿Ser el que se rindió ante las circunstancias o el que ayudo a una genia a lograr la mayor hazaña medica de la historia?"
-    show calisto decepsionada
+    show calisto decepcionada 
     prota "Perdón, tenes razon, no voy a dejarme superar por las circunstancias, juro que voy a ayudarte."
     calisto "Ya no quiero promesas vacías, no falta nada para que Ötzi se descongele y no puedo sola, mañana quiero ver otra versión tuya, sin excusas."
     prota "Si Dra."
@@ -57,7 +57,7 @@ label reagruparse_dia2:
         scene bg sala_comun
         show timor asustada at right
         timor "¡ALTO! ¿Como puedo saber que no están poseídos por la maldición?"
-        show calisto decepsionada
+        show calisto decepcionada 
         calisto "No moleste Timor, no hay maldición, solo virus y bacterias, y trajimos lo necesario para probarlo."
         show nostrov enojado at left
         nostrov "Bravo camaradas, consiguieron lo que buscaban. Pero ¿Y ahora que? Descubren que efectivamente hay un virus ¿y lo resuelven en un solo día?"
@@ -77,7 +77,7 @@ label reagruparse_dia2:
         scene bg sala_comun
         show timor asustada at right
         timor "¡ALTO! ¿Como puedo saber que no están poseídos por la maldición?"
-        show calisto decepsionada
+        show calisto decepcionada 
         calisto "No moleste Timor, no hay maldición, solo virus y bacterias, y mañana vamos a probarlo."
         show nostrov enojado at left
         nostrov "Bravo camaradas, ¿consiguieron lo que buscaban?. Yo ya podría haber arreglado ese generador y no pasaríamos otra noche de frio, pero ustedes se niegan a cooperar y esta miedosa solo busca escapar."
@@ -96,7 +96,7 @@ label reagruparse_dia2:
         scene bg sala_comun
         show timor asustada at right
         timor "¡ALTO! ¿Como puedo saber que no están poseídos por la maldición?"
-        show calisto decepsionada
+        show calisto decepcionada 
         calisto "No moleste Timor, no hay maldición, solo virus y bacterias, o eso creemos."
         show nostrov enojado at left
         nostrov "Bravo camaradas, ¿consiguieron lo que buscaban?. Yo ya podría haber arreglado ese generador y no pasaríamos otra noche de frio."
