@@ -3,6 +3,7 @@
 
     $ busco_a = "timor"
 
+    show timor asustada
     timor "Tenemos que escapar."
     prota "¿Por que?"
     timor "Esa momia, tiene una maldición, ya se llevo a los científicos anteriores, ahora vendrá por nosotros."
@@ -29,12 +30,22 @@ label como_piensas_escapar:
 label escape_solitario:
     scene bg sala_comun
 
+    show timor neutral at left
+    show calisto preocupada at right
+    show nostrov serio
+
     prota "Con la Dra. Timor decidimos que sería una buena idea si voy en busca de ayuda, nada esta funcionando dentro de este lugar. Esperar encerrados solo seria esperar a la muerte."
+    
+    show nostrov enojado
     nostrov "Muerte sería salir ahi afuera en estas condiciones, no te detendre si eso es lo que preguntas. Me servirá el silencio para intentar reparar la electricidad."
+    
+    show timor asustada at left
     timor "E-Ey nno va a morir, solo nececitamos que encuentre ayuda. Y resistir hasta entonces, solo asi nos salvaremos."
     nostrov "Eres una idiota si planeas esperar ayuda que no va a venir, nuestra mejor opcion es reparar el generador y esperar la tormenta."
+    
+    show calisto decepcionada at right
     calisto "Pelearnos no llevara a ningun lado."
-    calisto "*Jugador* estas seguro de esto?"
+    calisto "Estas seguro de esto?"
     prota "Si, volvere con ayuda pronto, lo prometo."
 
     narrador "Deberias preparar unas cosas, no es buena idea salir con las manos vacias."
@@ -167,8 +178,8 @@ label ir_a_salvarlos:
 
 label por_que_timor:
     narrador "El equipo de rescate decidio que no habia nada mas que pudieran hacer. Llevamos los cuerpos de vuelta a la ciudad asi podiamos contactar las familias y darles un descanso apropiado."
-    narrador "Nunca supe lo mala que llego a ser esa decisión... Mis compañeros habian muerto siendo portadores de un virus que traía la momia, al final ese virus logro contagiando al equipo de rescate, las familias, y a mi. Nunca supe que paso con el resto del mundo, pero si llegue a sobrevivir lo suficiente como para saber que los otros no tuvieron un destino distinto al mio."
-
+    narrador "Nunca supe lo mala que llego a ser esa decisión... Mis compañeros habian muerto siendo portadores de un virus que traía la momia, al final ese virus logro contagiando al equipo de rescate, las familias, y a mi." 
+    narrador "Nunca supe que paso con el resto del mundo, pero si llegue a sobrevivir lo suficiente como para saber que los otros no tuvieron un destino distinto al mio."
     scene black with fade
     centered "Fin."
 
