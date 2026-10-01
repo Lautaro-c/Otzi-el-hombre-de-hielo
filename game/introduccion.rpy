@@ -92,6 +92,7 @@ label viaje_mal:
     show timor asustada at left
     timor "¡No digas eso! ¡Da mala suerte!"
     show calisto canchera
+    show nostrov enojado at right
     nostrov "¿Mala suerte? Tonterías, eso no existe, este lugar esta sellado, ¡No va a pasar nada!"
 
     hide nostrov

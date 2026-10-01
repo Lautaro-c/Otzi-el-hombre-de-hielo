@@ -1,5 +1,9 @@
 ﻿# Zona clickeable invisible: se ilumina al pasar el mouse.
 # rect = (x, y, ancho, alto)  ->  AJUSTAR según tu arte (base 1920x1080)
+
+style boton_otzi is default:
+    background Solid("#000000")
+
 screen zona(rect, texto, destino):
     button:
         area rect
@@ -36,9 +40,8 @@ screen pantalla_sala_otzi():
     vbox:
         align (0.5, 0.96)
         spacing 10
-        if dia > 1 and energia > 0:
-            textbutton "Ir al almacén de suministros" action Return("almacen")
         textbutton "Reagruparse con los demás" action Return("reagruparse")
+
 
 # Almacén de suministros
 screen pantalla_almacen():
@@ -47,11 +50,11 @@ screen pantalla_almacen():
 
     if energia > 0:
         if not microscopio:
-            use zona((300, 600, 150, 120), "Microscopio", "click_microscopio")
+            use zona((330, 318, 125, 201), "Microscopio", "click_microscopio")
         if not bisturi:
-            use zona((900, 700, 100, 80), "Bisturí", "click_bisturi")
+            use zona((1350, 394, 50, 83), "Bisturí", "click_bisturi")
         if not pinza:
-            use zona((1400, 650, 120, 100), "Pinza", "click_pinza")
+            use zona((784, 53, 64, 38), "Pinza", "click_pinza")
 
     vbox:
         align (0.5, 0.96)

@@ -1,5 +1,6 @@
-﻿# ──────────────────────────────────────────
+# ──────────────────────────────────────────
 #  INVENTARIO EN PANTALLA — ruta escape en auto
+#  Click en un ítem: lo selecciona/deselecciona sin cerrar la pantalla.
 # ──────────────────────────────────────────
 screen inventario_auto():
     frame:
@@ -10,16 +11,22 @@ screen inventario_auto():
 
             if not (tiene_pieza or tiene_gato or tiene_llave_cruz or tiene_cables or tiene_rueda):
                 text "(vacío)" color "#888888"
-            if tiene_pieza:
-                text "🔧 Motor nuevo"
+
             if tiene_gato:
-                text "🚗 Gato hidráulico"
+                textbutton "🚗 Gato hidráulico" selected (item_seleccionado == "gato") action Function(auto_toggle_item, "gato")
             if tiene_llave_cruz:
-                text "✚ Llave de cruz"
+                textbutton "✚ Llave de cruz" selected (item_seleccionado == "llave_cruz") action Function(auto_toggle_item, "llave_cruz")
             if tiene_cables:
-                text "🔌 Cables nuevos"
+                textbutton "🔌 Cables nuevos" selected (item_seleccionado == "cables") action Function(auto_toggle_item, "cables")
             if tiene_rueda:
-                text "🛞 Rueda nueva"
+                textbutton "🛞 Rueda nueva" selected (item_seleccionado == "rueda") action Function(auto_toggle_item, "rueda")
+            if tiene_pieza:
+                textbutton "🔧 Motor nuevo" selected (item_seleccionado == "pieza") action Function(auto_toggle_item, "pieza")
+
+            if item_seleccionado:
+                text "Usando: [item_seleccionado]" size 18 color "#ffff66"
+            else:
+                text "(ningún objeto seleccionado)" size 18 color "#888888"
 
 screen hud_auto():
     use inventario_auto
@@ -30,21 +37,22 @@ screen hud_auto():
 
 # ──────────────────────────────────────────
 #  PANTALLA 1: buscar piezas en el taller
+#  (sin cambios: acá solo se recolecta, no se combina nada)
 # ──────────────────────────────────────────
 screen pantalla_taller_auto():
     modal True
     use hud_auto
 
     if not tiene_pieza:
-        use zona((150, 680, 320, 220), "Algo pesado bajo unos escombros", "pieza")
+        use zona((510, 662, 227, 58), "Algo pesado bajo unos escombros", "pieza")
     if not tiene_gato:
-        use zona((550, 760, 220, 160), "Una herramienta metálica en el piso", "gato")
+        use zona((77, 757, 156, 295), "Una herramienta metálica en el piso", "gato")
     if not tiene_rueda:
-        use zona((850, 650, 240, 240), "Una pila de neumáticos viejos", "rueda")
+        use zona((1101, 590, 59, 100), "Una pila de neumáticos viejos", "rueda")
     if not tiene_llave_cruz:
-        use zona((1150, 710, 180, 160), "Un objeto con forma de cruz", "llave_cruz")
+        use zona((1331, 869, 193, 204), "Un objeto con forma de cruz", "llave_cruz")
     if not tiene_cables:
-        use zona((1400, 620, 220, 160), "Cables enrollados en un rincón", "cables")
+        use zona((1445, 288, 81, 160), "Cables enrollados en un rincón", "cables")
 
     if tiene_pieza and tiene_gato and tiene_rueda and tiene_llave_cruz and tiene_cables:
         vbox:
@@ -53,37 +61,19 @@ screen pantalla_taller_auto():
 
 
 # ──────────────────────────────────────────
-#  PANTALLA 2: reparar el auto (la "parte final")
-#  Dos secuencias en paralelo: rueda y motor,
-#  más 2 hotspots señuelo que siempre están mal.
+#  PANTALLA 2: reparar el auto
+#  Cada hotspot solo devuelve SU nombre al hacer click;
+#  qué pasa con eso se resuelve en ruta_auto.rpy según
+#  qué objeto esté seleccionado.
 # ──────────────────────────────────────────
 screen pantalla_reparar_auto():
     modal True
     use hud_auto
 
-    # secuencia de la rueda
-    if auto_paso_rueda == 0:
-        use zona((250, 750, 260, 180), "Usar el gato debajo del auto", "gato_auto")
-    elif auto_paso_rueda == 1:
-        use zona((250, 750, 260, 180), "Usar la cruz en la rueda", "cruz_rueda")
-    elif auto_paso_rueda == 2:
-        use zona((250, 750, 260, 180), "Colocar la rueda nueva", "colocar_rueda")
-
-    # secuencia del motor
-    if auto_paso_motor == 0:
-        use zona((900, 500, 320, 220), "Abrir el capó", "capo")
-    elif auto_paso_motor == 1:
-        use zona((900, 500, 320, 220), "Sacar el motor viejo", "sacar_motor")
-    elif auto_paso_motor == 2:
-        use zona((900, 500, 320, 220), "Abrir el motor nuevo con la cruz", "abrir_motor")
-    elif auto_paso_motor == 3:
-        use zona((900, 500, 320, 220), "Ponerle los cables nuevos", "poner_cables")
-    elif auto_paso_motor == 4:
-        use zona((900, 500, 320, 220), "Dejar el motor en su lugar", "colocar_motor")
-
-    # señuelos: siempre disponibles, siempre gastan energía sin avanzar
-    use zona((1500, 850, 220, 130), "Intentar prender el motor", "decoy_prender")
-    use zona((1500, 640, 220, 130), "Bajar las ventanas", "decoy_ventanas")
+    use zona((250, 750, 260, 180), "Rueda pinchada", "rueda")
+    use zona((900, 500, 320, 220), "Motor del auto", "motor")
+    use zona((1500, 850, 220, 130), "Tablero de encendido", "arranque")
+    use zona((1500, 640, 220, 130), "Ventanilla", "ventanas")
 
     if rueda_colocada and motor_colocado:
         vbox:

@@ -15,7 +15,7 @@
             jump reagruparse_dia3
         "Ir al almacén de suministros" if investigacion_otzi < PISTAS_PARA_CURA:
             jump almacen
-        "Volver a revisar a Ötzi" if investigacion_otzi <= 0:
+        "Volver a revisar a Ötzi" if (not pulmon or not sangre_rara or not caries_encontradas):
             jump sala_otzi
 
 
