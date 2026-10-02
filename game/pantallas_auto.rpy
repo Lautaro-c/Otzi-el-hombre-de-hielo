@@ -68,12 +68,10 @@ screen pantalla_reparar_auto():
     modal True
     use hud_auto
 
-    use zona((250, 750, 260, 180), "Rueda pinchada", "rueda")
-    use zona((900, 500, 320, 220), "Motor del auto", "motor")
-    use zona((1500, 850, 220, 130), "Tablero de encendido", "arranque")
-    use zona((1500, 640, 220, 130), "Ventanilla", "ventanas")
+    use zona((269, 854, 120, 159), "Rueda pinchada", "rueda")
+    use zona((499, 652, 424, 104), "Motor del auto", "motor")
+    use zona((288, 745, 49, 49), "Tablero de encendido", "arranque")
+    use zona((570, 490, 374, 118), "Ventanilla", "ventanas")
 
     if rueda_colocada and motor_colocado:
-        vbox:
-            align (0.5, 0.96)
-            textbutton "Girar la llave" action Return("arrancar")
+        timer 0.1 action Return("arrancar")

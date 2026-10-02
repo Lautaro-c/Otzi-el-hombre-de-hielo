@@ -79,7 +79,7 @@ label abrigo:
     $ objetos_faltantes -= 1
     $ abrigo = True
 
-    narrador "Agarraste un abrigo invernal."
+    narrador "Agarraste una mochila."
 
     if (objetos_faltantes == 0):
         jump salir_refugio_solitario
@@ -99,6 +99,9 @@ label comida:
 
 
 label salir_refugio_solitario:
+
+    narrador "Supongo que con eso sera suficiente."    
+
     scene bg exterior_nieve with fade
 
     narrador "Apenas das un paso fuera, sientes instantaneamente el frio de la nevada en el exterior."

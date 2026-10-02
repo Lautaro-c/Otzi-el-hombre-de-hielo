@@ -12,6 +12,11 @@ screen zona(rect, texto, destino):
         tooltip texto
         action Return(destino)
 
+screen interactImage(hoveredText, destino, x, y, ruta):
+    vbox xpos x ypos y:
+        imagebutton auto ruta action Return(destino)
+        tooltip hoveredText
+
 # Energía + texto de la zona que estás señalando
 screen hud():
     frame:
@@ -78,9 +83,9 @@ screen pnc_ts():
 
     if objetos_faltantes > 0:
         if not linterna:
-            use zona((330, 318, 125, 201), "Linterna", "linterna")
+            use interactImage("Linterna", "linterna", 220, 780, "Objetos/Linterna_%s.png")
         if not abrigo:
-            use zona((1350, 394, 50, 83), "Abrigo invernal", "abrigo")
+            use interactImage("Mochila", "abrigo", 650, 120, "Objetos/Mochila_%s.png")
         if not comida:
-            use zona((784, 53, 64, 38), "Comida", "comida")
+            use interactImage("Comida", "comida", 1000, 75, "Objetos/Comida_%s.png")
         
