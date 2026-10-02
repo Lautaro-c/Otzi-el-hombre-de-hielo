@@ -29,6 +29,11 @@ screen hud():
             align (0.5, 0.04)
             text "[tt]"
 
+screen hud_decision():
+    frame:
+        align (0.98, 0.02)
+        text "Energía: [energia_decision]"
+
 # Sala donde está Ötzi
 screen pantalla_sala_otzi():
     modal True

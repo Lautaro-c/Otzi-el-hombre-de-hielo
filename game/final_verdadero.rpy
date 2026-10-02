@@ -1,4 +1,5 @@
 ﻿label final_bueno_hub:
+    hide screen hud_decision
     scene bg sala_comun
     show calisto preocupada at center
 

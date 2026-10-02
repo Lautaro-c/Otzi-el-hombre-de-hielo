@@ -6,6 +6,7 @@
 # analices el cuerpo para ver si hay algo que ella no haya visto.
     
 label aceptar_ayudar_otzi:
+    hide screen hud_decision
     scene bg sala_otzi with fade
     show calisto sonriente
     calisto "Voy a necesitar tu ayuda para analizar a Ötzi, con tan poca luz otro par de ojos es de gran ayuda."

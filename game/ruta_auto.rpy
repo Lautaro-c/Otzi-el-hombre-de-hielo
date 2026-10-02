@@ -39,6 +39,7 @@ init python:
 
 
 label escape_en_auto:
+    hide screen hud_decision
     scene bg sala_comun
 
     narrador "Después de pensarlo bien llegas a la conclusion de que el auto es la mejor opción"

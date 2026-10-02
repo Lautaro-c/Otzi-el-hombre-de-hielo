@@ -1,5 +1,6 @@
 ﻿
 label dia2_sin_plan:
+    hide screen hud_decision
     scene bg sala_comun
 
     narrador "Es el comienzo de otro día. Recorre la base para ver qué hacen tus compañeros o busca cosas por hacer (tienes 5 de energía)."

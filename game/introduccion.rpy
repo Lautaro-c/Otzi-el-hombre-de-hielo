@@ -159,6 +159,7 @@ label charla_tormenta:
     $ rechazo_timor = False
     $ rechazo_nostrov = False
     $ rechazo_calisto = False
+    show screen hud_decision
 
     jump decision_hub
 

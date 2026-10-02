@@ -23,6 +23,7 @@ label ruso_decisiones:
 
 
 label ruso_aceptar:
+    hide screen hud_decision
     show nostrov feliz
     nostrov "Sabia decisión. Vamos al taller por la herramienta."
     jump pasillo
@@ -216,7 +217,6 @@ label negarte_nostrov_final_malo:
     $ energia_decision -= 1
 
     if energia_decision > 0:
-        narrador "Te quedan [energia_decision] de energía."
         jump decision_hub
     else:
         jump dia2_sin_plan

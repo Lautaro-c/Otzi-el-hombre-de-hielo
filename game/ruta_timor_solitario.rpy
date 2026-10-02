@@ -42,13 +42,13 @@ label negarte_timor_final_malo:
     $ energia_decision -= 1
 
     if energia_decision > 0:
-        narrador "Te quedan [energia_decision] de energía."
         jump decision_hub
     else:
         jump dia2_sin_plan
 
 
 label escape_solitario:
+    hide screen hud_decision
     scene bg sala_comun
 
     show timor neutral at left
