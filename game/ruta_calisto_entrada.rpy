@@ -31,11 +31,17 @@
 
 # TODO: el texto de este final todavía no fue enviado.
 label negarte_calisto_final_malo:
-    narrador "Rechazas el plan de tu compañero. Puedes seguir recorriendo el lugar mientras te quede energía."
-    menu:
-        "Ir a ver si la doctora Timor esta bien.":
-            jump doctora_timor
-        "Ir a ayudar a Nostrov con el generador.":
-            jump ruso
-        "Llamarlos a todos." if todos_los_finales_vistos():
-            jump final_bueno_hub
+    show calisto decepcionada
+    calisto "Como quieras, allá vos."
+    hide calisto
+
+    narrador "Rechazas el plan de tu compañera. Puedes seguir recorriendo el lugar mientras te quede energía."
+
+    $ rechazo_calisto = True
+    $ energia_decision -= 1
+
+    if energia_decision > 0:
+        narrador "Te quedan [energia_decision] de energía."
+        jump decision_hub
+    else:
+        jump dia2_sin_plan

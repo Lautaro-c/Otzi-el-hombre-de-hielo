@@ -1,5 +1,5 @@
 ﻿label ruso:
-    scene bg taller with fade
+    scene bg sala_generador with fade
 
     narrador "Te acercas al Ingeniero Nostrov, quien sostiene una linterna pesada entre los dientes mientras examina unos esquemas eléctricos desplegados sobre una mesa metálica. Al verte llegar, se endereza y suspira, liberando un humo blanco por la boca debido a la baja temperatura del lugar."
 
@@ -200,9 +200,17 @@ label voltear_ver_nostrov:
 
 # TODO: el texto de este final todavía no fue enviado.
 label negarte_nostrov_final_malo:
-    scene black with fade
+    show nostrov enojado
+    nostrov "Como quieras, no esperaba mucho de un doctor de ciudad de todas formas."
+    hide nostrov
 
-    narrador "( pendiente: texto del final malo de 'Negarte' con Nostrov )"
+    narrador "Rechazas la propuesta de Nostrov. Puedes seguir recorriendo el lugar mientras te quede energía."
 
-    $ registrar_final("nostrov_negativa")
-    return
+    $ rechazo_nostrov = True
+    $ energia_decision -= 1
+
+    if energia_decision > 0:
+        narrador "Te quedan [energia_decision] de energía."
+        jump decision_hub
+    else:
+        jump dia2_sin_plan

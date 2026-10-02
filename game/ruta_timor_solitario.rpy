@@ -25,6 +25,24 @@ label como_piensas_escapar:
             jump escape_solitario
         "Escape en auto":
             jump escape_en_auto
+        "Negarte.":
+            jump negarte_timor_final_malo
+
+label negarte_timor_final_malo:
+    show timor triste
+    timor "¿No me vas a ayudar? Bien, are lo que pueda yo sola."
+    hide timor
+
+    narrador "Rechazas la propuesta de Timor. Puedes seguir recorriendo el lugar mientras te quede energía."
+
+    $ rechazo_timor = True
+    $ energia_decision -= 1
+
+    if energia_decision > 0:
+        narrador "Te quedan [energia_decision] de energía."
+        jump decision_hub
+    else:
+        jump dia2_sin_plan
 
 
 label escape_solitario:

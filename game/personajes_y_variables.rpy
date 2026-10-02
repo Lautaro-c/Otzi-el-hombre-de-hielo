@@ -62,6 +62,10 @@ default item_seleccionado = None   # objeto del inventario actualmente seleccion
 
 # quién fue a buscar a quién en la previa del final verdadero
 default busco_a = None   # "timor" o "nostrov"
+default energia_decision = 3
+default rechazo_timor = False
+default rechazo_nostrov = False
+default rechazo_calisto = False
 
 # ──────────────────────────────────────────
 #  VARIABLES — ruta escape solitario

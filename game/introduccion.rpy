@@ -155,12 +155,22 @@ label charla_tormenta:
     narrador "Calisto se pone una mano en la cabeza, sentándose en la silla."
     hide calisto
 
+    $ energia_decision = 3
+    $ rechazo_timor = False
+    $ rechazo_nostrov = False
+    $ rechazo_calisto = False
+
+    jump decision_hub
+
+label decision_hub:
+    scene bg sala_comun
+
     menu:
-        "Ir a ver si la doctora Timor esta bien.":
+        "Ir a ver si la doctora Timor esta bien." if not rechazo_timor:
             jump doctora_timor
-        "Ir a ayudar a Nostrov con el generador.":
+        "Ir a ayudar a Nostrov con el generador." if not rechazo_nostrov:
             jump ruso
-        "Quedarse a hablar con Calisto.":
+        "Quedarse a hablar con Calisto." if not rechazo_calisto:
             jump doctora_calisto
         "Llamarlos a todos." if todos_los_finales_vistos():
             jump final_bueno_hub
