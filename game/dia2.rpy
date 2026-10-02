@@ -69,11 +69,6 @@ label reagruparse_dia2:
         $ relacion_calisto += 2
 
     elif investigacion_otzi >= 3:
-        show calisto sonriente
-        calisto "Hoy no se logro, pero estamos muy cerca, puedo sentirlo."
-        prota "Pienso lo mismo Dra. mañana lo lograremos."
-        hide calisto
-        narrador "Ambos vuelven pensando que podría ser lo que les falta"
         scene bg sala_comun
         show timor asustada at right
         timor "¡ALTO! ¿Como puedo saber que no están poseídos por la maldición?"
@@ -88,11 +83,6 @@ label reagruparse_dia2:
         $ relacion_calisto += 1
 
     elif investigacion_otzi > 0:
-        show calisto preocupada
-        calisto "Estamos mucho mas lejos del objetivo de lo que pensaba. Pero no podemos bajar los brazos, tenemos que seguir adelante, es nuestra unica opción."
-        prota "Tambien me preocupa Dra. pero tenemos que mantenernos unidos."
-        hide calisto
-        narrador "Ambos vuelven pensando que podría ser lo que les falta"
         scene bg sala_comun
         show timor asustada at right
         timor "¡ALTO! ¿Como puedo saber que no están poseídos por la maldición?"

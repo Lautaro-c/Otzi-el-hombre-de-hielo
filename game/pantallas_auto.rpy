@@ -55,9 +55,7 @@ screen pantalla_taller_auto():
         use zona((1445, 288, 81, 160), "Cables enrollados en un rincón", "cables")
 
     if tiene_pieza and tiene_gato and tiene_rueda and tiene_llave_cruz and tiene_cables:
-        vbox:
-            align (0.5, 0.96)
-            textbutton "Ya revisamos todo, volver con los demás" action Return("listo")
+        timer 0.1 action Return("listo")
 
 
 # ──────────────────────────────────────────

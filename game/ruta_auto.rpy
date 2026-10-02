@@ -66,7 +66,7 @@ label auto_seguir:
     prota "Lo estuve pensando bien y tenemos que escapar usando el auto."
     show nostrov orgullo_ruso
     nostrov "La madre Rusia no cría a hombres débiles, ayúdenme con el generador y dormiremos calientes esta noche."
-    prota "Nostrov ya viste el generador, esta en el medio de la nieve y es tan viejo que ni vos debes saber con certeza como arreglarlo."
+    prota "Nostrov ya viste el generador, es tan viejo que ni vos debes saber con certeza como arreglarlo."
     show nostrov serio
     nostrov "Camarada odio admitirlo pero tiene un punto."
     show calisto sonriente at left
@@ -121,7 +121,7 @@ label auto_encontrar_pieza:
             nostrov "Por suerte ya tenemos un par."
         else:
             nostrov "No debería ser muy difícil encontrar un par."
-        show timor feliz
+        show timor feliz at right
         timor "Que suerte la maldición no parece haber afectado mucho esta parte del edificio."
         prota "Si claro como vos digas."
         $ costo = 2
@@ -181,7 +181,7 @@ label auto_encontrar_llave_cruz:
     timor "¡Una cruz, estamos a salvo!"
     narrador "Remueve la pieza de la pila"
     show timor confundida
-    timor "esperen, esto no es una cruz ¿Les sirve?"
+    timor "Esperen, esto no es una cruz ¿Les sirve?"
     prota "SI, va a ser ideal para cambiar las ruedas."
     show timor feliz
     timor "Perfecto entonces la llevamos."
@@ -198,7 +198,7 @@ label auto_encontrar_cables:
     timor "Son un par de cables, parecen estar en muy buen estado."
 
     if dia_auto == 1:
-        show nostrov feliz
+        show nostrov feliz at right
         nostrov "Buen descubrimiento camarada. Van a sernos útiles."
     else:
         prota "Buen descubrimiento, probablemente sean útiles."
@@ -210,7 +210,7 @@ label auto_encontrar_cables:
 
 
 label auto_tras_encontrar_item:
-    if energia_auto >= 0:
+    if energia_auto > 0:
         jump taller_auto_hub
     elif dia_auto == 1:
         jump descanso_dia1_auto
@@ -228,14 +228,14 @@ label descanso_dia1_auto:
     scene bg sala_comun
 
     prota "¿Como le fue Calisto?"
-    show calisto calisto decepcionada at left
+    show calisto decepcionada at left
     calisto "Eso... no importa"
     show nostrov serio at right
     nostrov "Camaradas tengo algo que decirles."
     prota "¿Que pasa Nostrov?"
     show nostrov orgullo_ruso at right
     nostrov "No puedo seguir intentando arreglar el auto. Mi orgullo me pide a gritos que arregle ese generador. Les deseo lo mejor."
-    show timor asustada at left
+    show timor asustada
     timor "¡¿QUE?! Pero si vos mismo dijiste que la opción lógica es arreglar el auto, ¿De que te sirve arreglar la electricidad si seguimos acá encerrados con esa momia?"
     prota "Déjalo Timor, es el camino que eligió y debemos respetarlo."
     show nostrov feliz at right
@@ -245,6 +245,7 @@ label descanso_dia1_auto:
 
 
 label dia_2_auto:
+    scene bg sala_comun
     narrador "Es difícil descansar bien con tanto frío. Igualmente Timor y tu se levantan listos para terminar lo que empezaron"
 
     prota "No creo que hayamos encontrado todo lo que necesitamos del taller, deberíamos volver a ir."

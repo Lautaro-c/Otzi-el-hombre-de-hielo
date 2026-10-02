@@ -40,6 +40,8 @@ screen pantalla_sala_otzi():
     vbox:
         align (0.5, 0.96)
         spacing 10
+        if dia > 1 and energia > 0:
+            textbutton "Ir al almacén" action Return("almacen")
         textbutton "Reagruparse con los demás" action Return("reagruparse")
 
 
