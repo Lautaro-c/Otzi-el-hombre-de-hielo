@@ -61,23 +61,29 @@ label escape_en_auto:
 
 
 label auto_seguir:
+    show timor asustada at left
+    show calisto pensativa at center
+    show nostrov serio at right
     prota "Lo estuve pensando bien y tenemos que escapar usando el auto."
-    show nostrov orgullo_ruso
+    show nostrov orgullo_ruso at right
     nostrov "La madre Rusia no cría a hombres débiles, ayúdenme con el generador y dormiremos calientes esta noche."
     prota "Nostrov ya viste el generador, es tan viejo que ni vos debes saber con certeza como arreglarlo."
-    show nostrov serio
+    show nostrov serio at right
     nostrov "Camarada odio admitirlo pero tiene un punto."
-    show calisto sonriente at left
+    show calisto sonriente at center
     calisto "Pero podríamos investigar que le paso a Ötzi, lo tenemos ahí mismo, no podemos perder esta oportunidad."
     prota "Mire Dra. no quiero subestimarla pero debe reconocer que desarrollar una vacuna en 3 días para una enfermedad que no sabe si existe o como esta compuesta no es realista."
-    show calisto canchera at left
+    show calisto canchera at center
     calisto "¿Y fingiendo ser mecánicos nos va a ir mejor?"
     prota "Si colaboramos todos sí. Nostrov ya tiene grandes conocimientos en mecánica y nosotros somos personas inteligentes vamos a poder ayudarlo."
-    show timor neutral at right
+    show timor neutral at left
     timor "El Dr. tiene razón, es nuestra mejor opción por favor ayúdenos Calisto."
-    show calisto decepcionada at left
+    show calisto decepcionada at center
     calisto "Perdón pero no puede dejar pasar una oportunidad así, ustedes hagan lo que quieran."
 
+    hide calisto
+    hide timor
+    hide nostrov
     narrador "Después de esto vos, Timor y Nostrov se dirigen al taller"
 
     jump ir_al_taller_auto
@@ -90,12 +96,16 @@ label ir_al_taller_auto:
     scene bg taller
 
     if dia_auto == 2:
+        show timor cansada at left
         prota "Este es nuestro segundo día acá. No debe faltarnos mucho."
 
     jump taller_auto_hub
 
 
 label taller_auto_hub:
+    hide timor
+    hide nostrov
+    hide calisto
     call screen pantalla_taller_auto
     $ resultado = _return
 
@@ -106,25 +116,28 @@ label taller_auto_hub:
 
 
 label auto_encontrar_pieza:
+    show timor cansada at left
+    if dia_auto == 1:
+        show nostrov serio at right
     prota "Acá hay algo muy pesado, voy a necesitar su ayuda."
     prota "Empujemos juntos, 3, 2, 1, YA."
 
     narrador "Con mucho esfuerzo sacan el motor."
 
     if dia_auto == 1:
-        show nostrov serio
+        show nostrov serio at right
         nostrov "Todo parece estar en buen estado excepto los cables."
         if tiene_cables:
-            show nostrov feliz
+            show nostrov feliz at right
             nostrov "Por suerte ya tenemos un par."
         else:
             nostrov "No debería ser muy difícil encontrar un par."
-        show timor feliz at right
+        show timor feliz at left
         timor "Que suerte la maldición no parece haber afectado mucho esta parte del edificio."
         prota "Si claro como vos digas."
         $ costo = 2
     else:
-        show timor feliz
+        show timor feliz at left
         timor "Que suerte la maldición no parece haber afectado mucho esta parte del edificio."
         prota "Si claro como vos digas."
         $ costo = 2
@@ -137,23 +150,23 @@ label auto_encontrar_pieza:
 
 label auto_encontrar_gato:
     if dia_auto == 1:
-        show nostrov feliz
+        show nostrov feliz at right
         nostrov "¡Camaradas miren esto!"
         prota "¿Que encontraste Nostrov?"
-        show nostrov serio
+        show nostrov confundido at right
         nostrov "Es un... ¿Como se llama esto en español? La herramienta para levantar autos."
         prota "¿Un gato?"
-        show nostrov confundido
+        show nostrov confundido at right
         nostrov "¿Que? NO ¿que haría un pequeño e indefenso michi aquí? ¿Y como nos ayudaría con el auto?"
         prota "No ese tipo de gato, un gato hidráulico."
-        show nostrov feliz
+        show nostrov feliz at right
         nostrov "Ahh, si encontré eso."
         $ costo = 2
     else:
-        show timor feliz
+        show timor feliz at left
         timor "¡Encontré un gato!"
         prota "¿Un gato?"
-        show timor neutral
+        show timor neutral at left
         timor "La herramienta, no el animal."
         prota "Ahh, claro."
         $ costo = 1
@@ -167,21 +180,25 @@ label auto_encontrar_gato:
 
 label auto_encontrar_rueda:
     narrador "Después de revolver en una pila de piezas rotas, sucias y viejas encuentras una rueda"
+    show timor neutral at left
+    if dia_auto == 1:
+        show nostrov serio at right
     narrador "La revisas bien para asegurarte de que no este pinchada y la inflan"
 
+    show timor feliz at left
     $ tiene_rueda = True
     $ energia_auto -= 1
     jump auto_tras_encontrar_item
 
 
 label auto_encontrar_llave_cruz:
-    show timor feliz
+    show timor feliz at left
     timor "¡Una cruz, estamos a salvo!"
     narrador "Remueve la pieza de la pila"
-    show timor confundida
+    show timor confundida at left
     timor "Esperen, esto no es una cruz ¿Les sirve?"
     prota "SI, va a ser ideal para cambiar las ruedas."
-    show timor feliz
+    show timor feliz at left
     timor "Perfecto entonces la llevamos."
     hide timor
     $ tiene_llave_cruz = True
@@ -190,7 +207,7 @@ label auto_encontrar_llave_cruz:
 
 
 label auto_encontrar_cables:
-    show timor neutral
+    show timor neutral at left
     timor "Eu chicos encontré algo."
     prota "¿Que es?"
     timor "Son un par de cables, parecen estar en muy buen estado."
@@ -217,7 +234,7 @@ label auto_tras_encontrar_item:
 
 
 label descanso_dia1_auto:
-    show timor cansada
+    show timor cansada at left
     timor "Ya fue mucho por hoy, si seguimos trabajando no vamos a poder escapar hoy ni nunca."
     show nostrov serio at right
     nostrov "La Dra. tiene razón, descansemos por hoy."
@@ -225,18 +242,23 @@ label descanso_dia1_auto:
     narrador "Todos vuelven a reunirse"
     scene bg sala_comun
 
+    show calisto preocupada at center
+    show timor cansada at left
+    show nostrov serio at right
     prota "¿Como le fue Calisto?"
-    show calisto decepcionada at left
+    show calisto decepcionada at center
     calisto "Eso... no importa"
     show nostrov serio at right
     nostrov "Camaradas tengo algo que decirles."
     prota "¿Que pasa Nostrov?"
     show nostrov orgullo_ruso at right
     nostrov "No puedo seguir intentando arreglar el auto. Mi orgullo me pide a gritos que arregle ese generador. Les deseo lo mejor."
-    show timor asustada
+    show timor asustada at left
     timor "¡¿QUE?! Pero si vos mismo dijiste que la opción lógica es arreglar el auto, ¿De que te sirve arreglar la electricidad si seguimos acá encerrados con esa momia?"
     prota "Déjalo Timor, es el camino que eligió y debemos respetarlo."
     show nostrov feliz at right
+    show timor triste at left
+    show calisto decepcionada at center
     narrador "Nostrov te agradece el gesto con la mirada, muertos de sueño todos van a dormir"
 
     jump dia_2_auto
@@ -244,10 +266,11 @@ label descanso_dia1_auto:
 
 label dia_2_auto:
     scene bg sala_comun
+    show timor cansada at left
     narrador "Es difícil descansar bien con tanto frío. Igualmente Timor y tu se levantan listos para terminar lo que empezaron"
 
     prota "No creo que hayamos encontrado todo lo que necesitamos del taller, deberíamos volver a ir."
-    show timor neutral
+    show timor neutral at left
     timor "Estoy de acuerdo, vamos."
 
     $ energia_auto = ENERGIA_AUTO_DIA_2
@@ -258,7 +281,7 @@ label dia_2_auto:
 
 label auto_dia2_completo:
     prota "No creo que podamos sacar mas cosas de acá."
-    show timor neutral
+    show timor confundida2 at left
     timor "Si, eso parece ser todo lo valioso que hay. ¿Ahora que hacemos?"
 
     menu:
@@ -269,35 +292,48 @@ label auto_dia2_completo:
 
 
 label descanso_dia2_auto:
-    show timor cansada
+    show timor cansada at left
     timor "Odio tener que admitirlo, con tan poco tiempo hasta que se descongele esa cosa, pero ya no doy más."
+    show timor triste at left
     prota "Esta bien, no te preocupes, mañana seguro terminamos."
 
     narrador "Todos vuelven a reunirse"
     scene bg sala_comun
+    show calisto decepcionada at center
+    show timor cansada at left
+    show nostrov serio at right
     prota "¿Como le fue Calisto?"
-    show calisto enojada
+    show calisto enojada at center
     calisto "¿Como se ve que me fue?"
-    show timor triste at right
+    show timor triste at left
     timor "No muy bien diría, debe ser la maldición, ayúdanos y escapemos antes."
+    show calisto enojada at center
     calisto "Escapar, escapar, escapar ¿Por que estas tan obsesionada con escapar?"
-    show timor asustada at right
+    show timor asustada at left
     timor "¡La maldición! Cuantas veces tengo que repetirlo."
     calisto "¡No hay maldición! Sos la mejor química y cirujana de tu generación ¿Y en que gastas tu talento? un auto que lleva años acá."
 
+    show timor triste at left
+    show calisto decepcionada at center
+    show nostrov preocupado at right
     narrador "Por un momento que parece una eternidad se hace un silencio"
 
     prota "Y... ¿Como te fue Nostrov?"
-    show nostrov orgullo_ruso at left
+    show nostrov orgullo_ruso at right
     nostrov "Ese generador me esta dando pelea camarada. Pero yo nunca escapo de una buena pelea."
     prota "Si, eso imagine."
 
+    show timor cansada at left
+    show nostrov serio at right
     narrador "Muertos de sueño todos van a dormir"
 
     jump dia_3_auto
 
 
 label dia_3_auto:
+    hide timor
+    hide calisto
+    hide nostrov
     narrador "Ya tienen todo lo necesario y el tiempo no esta de su lado, van directo a intentar reparar el auto."
 
     $ energia_auto = ENERGIA_AUTO_DIA_3
@@ -313,6 +349,7 @@ label dia_3_auto:
 label intentar_reparar_auto:
     scene bg taller
 
+    show timor asustada at left
     narrador "El auto tiene una rueda pinchada y el motor no parece funcionar"
     narrador "Intentar cosas sin sentido solo les va a gastar energía, ¿Que van a hacer?"
 
@@ -321,6 +358,9 @@ label intentar_reparar_auto:
 
 
 label reparar_auto_hub:
+    hide timor
+    hide nostrov
+    hide calisto
     call screen pantalla_reparar_auto
     $ target = _return
 
@@ -332,13 +372,14 @@ label reparar_auto_hub:
 
 
 label auto_resultado_rueda_gato:
+    show timor neutral at left
     prota "El gato es la herramienta perfecta para esto, que bueno que la encontramos."
     prota "Ahora deberíamos sacar esa rueda vieja."
     $ auto_paso_rueda = 1
     jump auto_post_intento
 
 label auto_resultado_rueda_cruz:
-    show timor feliz
+    show timor feliz at left
     timor "La cruz que encontré es perfecta para sacar la rueda."
     prota "Si, ahora solo queda poner la nueva."
     hide timor
@@ -346,6 +387,7 @@ label auto_resultado_rueda_cruz:
     jump auto_post_intento
 
 label auto_resultado_rueda_colocar:
+    show timor feliz at left
     prota "Esta vieja rueda va a terminar siendo nuestra salvación."
     prota "La rueda nueva ya esta arreglada, ahora debería enfocarme en arreglar el motor."
     $ auto_paso_rueda = 3
@@ -354,16 +396,18 @@ label auto_resultado_rueda_colocar:
 
 
 label auto_resultado_motor_cruz:
+    show timor confundida2 at left
     prota "Que bueno que lo abrimos, todos estos cables están destrozados."
     $ auto_paso_motor = 1
     jump auto_post_intento
 
 label auto_resultado_motor_cables:
-    show timor neutral
+    show timor neutral at left
     timor "Déjame esto a mí, soy extremadamente precisa."
     prota "Ok, confió en vos. Ya estamos cerca."
     narrador "La Dra. Timor cambia los cables con una precision y velocidad increíble."
-    show timor feliz
+    show timor feliz at left
+    show timor sonrojada at left
     prota "Wow, que velocidad."
     prota "Ahora deberíamos reorganizarlo en su lugar."
     hide timor
@@ -371,13 +415,16 @@ label auto_resultado_motor_cables:
     jump auto_post_intento
 
 label auto_resultado_motor_colocar:
+    show timor cansada at left
     prota "Un ultimo esfuerzo y ya estamos. Hagámoslo juntos. 3, 2, 1, YA."
+    show timor feliz at left
     narrador "Uniendo sus fuerzas ponen el nuevo motor en su lugar y parece funcionar"
     $ auto_paso_motor = 3
     $ motor_colocado = True
     jump auto_post_intento
 
 label auto_resultado_fail:
+    show timor triste at left
     prota "Me parece que esto no funciono."
     jump auto_post_intento
 
@@ -391,19 +438,24 @@ label auto_post_intento:
 
 
 label ver_final_auto:
+    show timor asustada at left
     prota "Solo queda ver si funciona..."
     narrador "Mientras giras la llave Timor empieza a rezar"
-    show timor asustada
     timor "Padre nuestro que estas en el cielo..."
     narrador "Se hace un momento de silencio y..."
 
     if rueda_colocada and motor_colocado:
         prota "¡FUNCIONO!"
-        show timor feliz
+        show timor feliz at left
         timor "¡LO LOGRAMOS!"
         timor "Hay que ir a avisarle a los demás."
         hide timor
+        scene bg sala_comun with dissolve
+        show timor feliz at left
+        show nostrov feliz at right
+        show calisto pensativa at center
         narrador "Emocionados Timor y el protagonista van a buscar a los demás, Nostrov accede alegremente a subir al auto y escapar. Calisto al principio le cuesta dejar a Ötzi ahí y la oportunidad que ve en el pero entra en razón y termina aceptando."
+        show calisto sonriente at center
         narrador "Después de informarle a las autoridades del país el lugar donde se encuentra Ötzi es sellado permanentemente y eso hace muy feliz a Timor."
         narrador "Al día de hoy nadie se atrevió a entrar."
 
@@ -416,8 +468,12 @@ label ver_final_auto:
 
         narrador "En ese momento escuchan el hielo quebrarse y a la Dra. Calisto gritar"
 
+        scene bg sala_otzi with dissolve
+        show calisto preocupada at center
         calisto "Noooooooooooooooo."
 
+        scene bg taller with dissolve
+        show timor triste at left
         narrador "En sus últimos momentos antes de partir, se lanzan una mirada reconociendo el esfuerzo del otro y se abrazan antes de morir."
 
         scene black with fade

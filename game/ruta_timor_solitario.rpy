@@ -3,7 +3,7 @@
 
     $ busco_a = "timor"
 
-    show timor asustada
+    show timor asustada at center
     timor "Tenemos que escapar."
     prota "¿Por que?"
     timor "Esa momia, tiene una maldición, ya se llevo a los científicos anteriores, ahora vendrá por nosotros."
@@ -13,11 +13,14 @@
 
 
 label como_piensas_escapar:
+    show timor neutral at center
     timor "Como yo lo veo tenemos 2 opciones escapar con el auto o con el traje."
     prota "Pero el auto no funciona, ¿Cómo lo usaríamos?"
     timor "Hay una habitación llena de partes viejas de autos y mecánica, ahí debe haber algo que nos sirva."
     prota "Podría ser cierto, antes mencionaste el traje pero solo tenemos uno ¿Pretendes escapar sola?"
+    show timor asustada at center
     timor "No, no, lo que yo digo es que uno debería llevar el traje pedir refuerzos y volver por los demás. Iría yo, pero no podría con este clima. Vos sos la mejor opción, sos fuerte y no confió en Nostrov para que vaya el."
+    show timor neutral at center
     timor "¿Entonces que vas a hacer?"
 
     menu:
