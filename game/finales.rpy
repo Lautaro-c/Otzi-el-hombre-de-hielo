@@ -24,6 +24,7 @@
 
         scene black with fade
         centered "Final bueno ruta Dra. Calisto Escrito por Lautaro Puig Da Silva."
+        $ registrar_final("calisto_bueno")
         return
 
     else:
@@ -43,6 +44,7 @@
             calisto "Tu victimismo y falta de valentía nos trajo hasta acá. Sos un cobarde."
         scene black with fade
         centered "Final malo ruta Dra. Calisto Escrito por Lautaro Puig Da Silva."
+        $ registrar_final("calisto_malo_cura")
         return
 
 
@@ -71,4 +73,5 @@ label ira_total:
 
     scene black with fade
     centered "Final Malo de la Ruta de la Dra. Calisto por Lautaro Puig Da Silva"
+    $ registrar_final("calisto_malo_ira")
     return
