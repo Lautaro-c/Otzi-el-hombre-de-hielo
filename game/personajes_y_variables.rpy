@@ -57,7 +57,7 @@ default motor_colocado = False
 default energia_auto = ENERGIA_AUTO_DIA_1
 default dia_auto = 1
 default auto_paso_rueda = 0   # 0=nada, 1=auto levantado con el gato, 2=rueda vieja sacada con la cruz, 3=rueda nueva colocada
-default auto_paso_motor = 0   # auto_paso_motor: 0=nada, 1=motor viejo sacado, 2=motor nuevo abierto con la cruz, 3=cables puestos, 4=motor colocado
+default auto_paso_motor = 0   # 0=nada, 1=motor nuevo abierto con la cruz, 2=cables puestos, 3=motor colocado
 default item_seleccionado = None   # objeto del inventario actualmente seleccionado (o None)
 
 # quién fue a buscar a quién en la previa del final verdadero

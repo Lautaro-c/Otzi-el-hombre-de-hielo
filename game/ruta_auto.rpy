@@ -25,13 +25,11 @@ init python:
                 return "fail"
 
         elif target == "motor":
-            if item is None and store.auto_paso_motor == 0:
-                return "motor_sacar"
-            elif item == "llave_cruz" and store.auto_paso_motor == 1:
+            if item == "llave_cruz" and store.auto_paso_motor == 0:
                 return "motor_cruz"
-            elif item == "cables" and store.auto_paso_motor == 2:
+            elif item == "cables" and store.auto_paso_motor == 1:
                 return "motor_cables"
-            elif item == "pieza" and store.auto_paso_motor == 3:
+            elif item == "pieza" and store.auto_paso_motor == 2:
                 return "motor_colocar"
             else:
                 return "fail"
@@ -280,17 +278,17 @@ label descanso_dia2_auto:
     prota "¿Como le fue Calisto?"
     show calisto enojada
     calisto "¿Como se ve que me fue?"
-    show timor triste
+    show timor triste at right
     timor "No muy bien diría, debe ser la maldición, ayúdanos y escapemos antes."
     calisto "Escapar, escapar, escapar ¿Por que estas tan obsesionada con escapar?"
-    show timor asustada
+    show timor asustada at right
     timor "¡La maldición! Cuantas veces tengo que repetirlo."
     calisto "¡No hay maldición! Sos la mejor química y cirujana de tu generación ¿Y en que gastas tu talento? un auto que lleva años acá."
 
     narrador "Por un momento que parece una eternidad se hace un silencio"
 
     prota "Y... ¿Como te fue Nostrov?"
-    show nostrov orgullo_ruso
+    show nostrov orgullo_ruso at left
     nostrov "Ese generador me esta dando pelea camarada. Pero yo nunca escapo de una buena pelea."
     prota "Si, eso imagine."
 
@@ -335,35 +333,29 @@ label reparar_auto_hub:
 
 label auto_resultado_rueda_gato:
     prota "El gato es la herramienta perfecta para esto, que bueno que la encontramos."
+    prota "Ahora deberíamos sacar esa rueda vieja."
     $ auto_paso_rueda = 1
     jump auto_post_intento
 
 label auto_resultado_rueda_cruz:
     show timor feliz
     timor "La cruz que encontré es perfecta para sacar la rueda."
+    prota "Si, ahora solo queda poner la nueva."
     hide timor
     $ auto_paso_rueda = 2
     jump auto_post_intento
 
 label auto_resultado_rueda_colocar:
     prota "Esta vieja rueda va a terminar siendo nuestra salvación."
+    prota "La rueda nueva ya esta arreglada, ahora debería enfocarme en arreglar el motor."
     $ auto_paso_rueda = 3
     $ rueda_colocada = True
     jump auto_post_intento
 
-label auto_resultado_motor_sacar:
-    prota "Como pesa, ¿Me ayudarías?"
-    show timor neutral
-    timor "Si, ya voy."
-    show timor cansada
-    narrador "Juntos sacan el motor viejo"
-    hide timor
-    $ auto_paso_motor = 1
-    jump auto_post_intento
 
 label auto_resultado_motor_cruz:
     prota "Que bueno que lo abrimos, todos estos cables están destrozados."
-    $ auto_paso_motor = 2
+    $ auto_paso_motor = 1
     jump auto_post_intento
 
 label auto_resultado_motor_cables:
@@ -371,14 +363,17 @@ label auto_resultado_motor_cables:
     timor "Déjame esto a mí, soy extremadamente precisa."
     prota "Ok, confió en vos. Ya estamos cerca."
     narrador "La Dra. Timor cambia los cables con una precision y velocidad increíble."
+    show timor feliz
+    prota "Wow, que velocidad."
+    prota "Ahora deberíamos reorganizarlo en su lugar."
     hide timor
-    $ auto_paso_motor = 3
+    $ auto_paso_motor = 2
     jump auto_post_intento
 
 label auto_resultado_motor_colocar:
     prota "Un ultimo esfuerzo y ya estamos. Hagámoslo juntos. 3, 2, 1, YA."
     narrador "Uniendo sus fuerzas ponen el nuevo motor en su lugar y parece funcionar"
-    $ auto_paso_motor = 4
+    $ auto_paso_motor = 3
     $ motor_colocado = True
     jump auto_post_intento
 
