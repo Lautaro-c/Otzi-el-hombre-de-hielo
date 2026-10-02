@@ -57,11 +57,11 @@ screen pantalla_almacen():
 
     if energia > 0:
         if not microscopio:
-            use zona((330, 318, 125, 201), "Microscopio", "click_microscopio")
+            use interactImage("Microscopio", "click_microscopio", 250, 300, "Objetos/microscopio_%s.png")
         if not bisturi:
-            use zona((1350, 394, 50, 83), "Bisturí", "click_bisturi")
+            use interactImage("Bisturí", "click_bisturi", 1350, 394, "Objetos/visturi_%s.png")
         if not pinza:
-            use zona((784, 53, 64, 38), "Pinza", "click_pinza")
+            use interactImage("Pinza", "click_pinza", 784, -50, "Objetos/pinsas_%s.png")
 
     vbox:
         align (0.5, 0.96)
