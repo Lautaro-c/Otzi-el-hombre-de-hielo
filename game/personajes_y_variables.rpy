@@ -77,11 +77,9 @@ define objetos_faltantes = 3
 #  (habilita "Llamarlos a todos" en el hub "Con quien vas")
 # ──────────────────────────────────────────
 define FINALES_REQUERIDOS = {
-    "calisto_bueno", "calisto_malo_cura", "calisto_malo_ira",
+    "calisto_bueno",
     "nostrov_bueno",
-    "auto_bueno", "auto_malo",
-    "timor_solitario",
-    "energia_agotada",
+    "auto_bueno",
 }
 
 init python:
@@ -90,6 +88,7 @@ init python:
 
     def registrar_final(nombre):
         persistent.finales_vistos.add(nombre)
+        renpy.save_persistent()
 
     def todos_los_finales_vistos():
         return FINALES_REQUERIDOS.issubset(persistent.finales_vistos)

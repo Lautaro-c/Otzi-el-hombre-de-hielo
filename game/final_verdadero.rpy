@@ -225,7 +225,8 @@ label minijuego_dias_final_bueno:
     hide timor
     hide calisto
     hide nostrov
-    narrador "Los point and click de esta ruta son complicados porque en los 3 dias tienes que ayudar a Calisto y Nostrov a la vez, pero como para llegar aca ya hiciste sus rutas es facil saber que hacer sin perder mucho tiempo. Al final del tercer dia si hiciste todo bien se llega al climax."
+    narrador "Despues de 3 dias de enorme esfuerzo, finalmente es el momento..."
+    # narrador "Los point and click de esta ruta son complicados porque en los 3 dias tienes que ayudar a Calisto y Nostrov a la vez, pero como para llegar aca ya hiciste sus rutas es facil saber que hacer sin perder mucho tiempo. Al final del tercer dia si hiciste todo bien se llega al climax."
 
     # TODO: minijuego combinado de 3 días (rutas de Calisto y Nostrov a la vez).
     # El material original no detalla la mecánica más allá de esta descripción;
@@ -266,14 +267,27 @@ label point_and_click_final:
     hide timor
     hide calisto
     hide nostrov
-    narrador "La secuencia de point and click mas dificil, tenes que revisar que el adn se extraiga con exito, Timor lo repare e inserte cuidadosamente en la maquina de clonacion y generar el clon con exito."
-    narrador "Si la logras completar sin fallar, obtienes la secuencia final. Si fallas, vas a un game over y lo puedes reintentar"
+    window hide
 
-    # TODO: igual que el minijuego de 3 días, este tampoco tiene mecánica
-    # detallada ni un passage de fallo real en el material original —
-    # solo la descripción y el link directo al final bueno.
+    $ adn_preparar()
+    call screen pantalla_adn_final
 
-    jump final_bueno_verdadero
+    if _return == "exito":
+        $ adn_fragmentos = []
+        $ adn_inicio = None
+        window auto
+        jump final_bueno_verdadero
+    else:
+        $ adn_fragmentos = []
+        $ adn_inicio = None
+        window auto
+        narrador "El tiempo se agotó antes de completar la reconstrucción del ADN. La secuencia de clonación se interrumpe."
+
+        menu:
+            "Reintentar":
+                jump point_and_click_final
+            "Volver al menú principal":
+                return
 
 
 label final_bueno_verdadero:
