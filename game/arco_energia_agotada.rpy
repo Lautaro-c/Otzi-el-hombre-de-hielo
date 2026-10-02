@@ -1,4 +1,5 @@
-﻿label dia2_sin_plan:
+﻿
+label dia2_sin_plan:
     scene bg sala_comun
 
     narrador "Es el comienzo de otro día. Recorre la base para ver qué hacen tus compañeros o busca cosas por hacer (tienes 5 de energía)."
@@ -17,6 +18,8 @@ label hub_dia2_sin_plan:
 
 
 label calisto_dia2_sin_plan:
+    scene bg sala_otzi
+
     show calisto preocupada
     narrador "Sigue intentando curar a Otzi por su cuenta. Se le nota estresada y frustrada, ya que no ha logrado ningún progreso por sí misma en todo el día."
     hide calisto preocupada
@@ -31,9 +34,10 @@ label calisto_dia2_sin_plan:
 
 
 label ruso_dia2_sin_plan:
-    show Nostrov serio
+    scene bg sala_generador
+    show nostrov serio
     narrador "Se lo ve muy enojado mientras trabaja en el generador e insulta entre murmullos. Quizá molestarlo no sea una buena idea."
-    hide Nostrov serio
+    hide nostrov serio
 
     menu:
         "Decirle que es inutil":
@@ -45,6 +49,7 @@ label ruso_dia2_sin_plan:
 
 
 label timor_dia2_sin_plan:
+    scene bg cuarto_timor
     narrador "Vas a ver en qué anda Timor, pero no la encuentras por ninguna parte. Revisas su habitación y encuentras una nota que dejó atrás."
 
     menu:
@@ -62,13 +67,14 @@ label ofrecer_ayuda_curarlo:
     
 
 label ofrecer_ayuda_arreglarlo:
-    show Nostrov feliz
+    show nostrov feliz
     narrador "Trabajas junto al Ruso para hacer lo posible, pero no se logra mucho progreso y piensas que fue una pérdida de tiempo."
-    hide Nostrov feliz
+    hide nostrov feliz
     jump en_la_noche_sin_plan
 
 
 label leer_la_nota:
+    scene bg cuarto_timor
     narrador "Agarras la nota que dice: «No se preocupen por mí. Fui a buscar ayuda y volveré en dos días con las autoridades.»"
     jump en_la_noche_sin_plan
 
@@ -86,6 +92,7 @@ label decirle_inutil_ruso:
     jump en_la_noche_sin_plan
 
 label no_decir_nada_irte_calisto:
+    scene bg sala_comun
     narrador "Te retiras para seguir deambulando por la base y ver qué hacen los demás."
 
     menu:
@@ -97,6 +104,7 @@ label no_decir_nada_irte_calisto:
             jump en_la_noche_sin_plan
 
 label no_decir_nada_irte_ruso:
+    scene bg sala_comun
     narrador "Te retiras para seguir deambulando por la base y ver qué hacen los demás."
 
     menu:
@@ -108,6 +116,7 @@ label no_decir_nada_irte_ruso:
             jump en_la_noche_sin_plan
 
 label no_decir_nada_irte_timor:
+    scene bg sala_comun
     narrador "Te retiras para seguir deambulando por la base y ver qué hacen los demás."
 
     menu:
@@ -119,6 +128,7 @@ label no_decir_nada_irte_timor:
             jump en_la_noche_sin_plan
 
 label en_la_noche_sin_plan:
+    scene bg cuarto_timor
     narrador "Te despiertas por los gritos de tus compañeros que escuchas desde el pasillo. Parecen estar peleando por algo, pero no llegas a distinguir sobre qué discuten."
 
     menu:
@@ -129,11 +139,12 @@ label en_la_noche_sin_plan:
 
 
 label ir_a_ver_que_sucede:
-    show calisto enojada left 
-    show nostrov enojado rigth 
+    scene bg laboratorio_entrada
+    show calisto enojada at left 
+    show nostrov enojado at right 
     narrador "Los ves gritándose insultos y amenazas, diciendo que lo que hace el otro es inútil y que tendría que concentrarse en su tarea porque es más importante."
-    hide calisto enojada left 
-    hide nostrov enojado rigth 
+    hide calisto enojada
+    hide nostrov enojado
     menu:
         "intervenir en la pelea":
             jump intervenir_en_la_pelea
@@ -142,17 +153,18 @@ label ir_a_ver_que_sucede:
 
 
 label ignorarlos_dormir:
+    scene bg cuarto_timor
     narrador "Te pones tapones en los oídos y vuelves a dormir, indiferente a lo que suceda afuera."
 
     jump en_la_manana_siguiente
 
 
 label intervenir_en_la_pelea:
-    show calisto enojada left 
-    show nostrov enojado rigth 
+    show calisto enojada at left 
+    show nostrov enojado at right 
     narrador "Te interpones entre ellos intentando frenar la pelea, pero no hay manera de hacer que se calmen. En el calor de la discusión, Nostrov saca un arma y le dispara a Calisto, matándola. El Ruso, horrorizado por sus acciones, se pone el revólver en la cabeza y se mata."
-    hide calisto enojada left 
-    hide nostrov enojado rigth 
+    hide calisto enojada
+    hide nostrov enojado
     menu:
         "intentar dormir para esperar la ayuda de Timor por la mañana":
             jump intentar_dormir_esperar_timor
@@ -161,7 +173,7 @@ label intervenir_en_la_pelea:
 
 
 label en_la_manana_siguiente:
-    scene bg pasillo_oscuro
+    scene bg laboratorio_entrada
 
     narrador "Sales de tu habitación y te encuentras un charco de sangre. Avanzas por el pasillo y te encuentras los cadáveres de tus compañeros. Tal parece que el Nostrov mató a Calisto y luego se suicidó. Horrorizado por la escena, sales a ver si Timor llegó con ayuda."
 
@@ -169,6 +181,7 @@ label en_la_manana_siguiente:
 
 
 label intentar_dormir_esperar_timor:
+    scene bg cuarto_timor
     narrador "Duermes ignorando lo sucedido, sabiendo que Timor llegará mañana con ayuda."
 
     jump sales_ver_timor_ayuda
@@ -197,5 +210,5 @@ label dispararte_en_la_cabeza:
     centered "Conseguiste el Final Malo. ¿Quieres jugar de nuevo?"
 
     $ registrar_final("energia_agotada")
-
-    jump introduccion
+    
+    return
