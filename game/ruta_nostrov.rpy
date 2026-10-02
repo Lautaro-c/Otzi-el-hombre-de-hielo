@@ -8,6 +8,7 @@
 
 
 label ruso_decisiones:
+    show nostrov serio
     nostrov "Escúchame bien, colega. Olvídate de maldiciones o supersticiones. La realidad es simple, el corte acabó por cortar la refrigeración y los sistemas de Ötzi aguantarán 3 días antes del deshielo total. Si no recuperamos la energía para el Día 3, moriremos congelados o arruinaremos el hallazgo."
     prota "¿Tienes un plan para el generador?"
     nostrov "El panel principal sufrió un cortocircuito por la tormenta."
@@ -17,11 +18,12 @@ label ruso_decisiones:
     menu:
         "Aceptar ayudarlo a reparar el generador":
             jump ruso_aceptar
-        "Negarte (Final malo)":
+        "Negarte":
             jump negarte_nostrov_final_malo
 
 
 label ruso_aceptar:
+    show nostrov feliz
     nostrov "Sabia decisión. Vamos al taller por la herramienta."
     jump pasillo
 
@@ -45,6 +47,7 @@ label taller_generador:
 label buscar_llave:
     narrador "Entran al taller. Encuentras la llave inglesa pesada sobre el banco de trabajo, pero notas que falta uno de los trajes térmicos livianos del estante."
 
+    show nostrov confundido
     nostrov "La Dra. Timor estuvo aquí."
     narrador "Refunfuñando."
     nostrov "Estaba aterrorizada con lo de la maldición. Presiento que intentó hacer alguna estupidez."
@@ -66,6 +69,7 @@ label tomar_la_llave:
 
 
 label premisa_muerte_timor:
+    hide nostrov confundido
     narrador "Se terminó por hacer tan tarde que ha oscurecido y no logran ver nada a la distancia. Toman la desición de descansar y buscarla al día siguiente."
 
     if not tiene_llave_inglesa:
@@ -91,24 +95,29 @@ label muerte_timor:
 
 
 label vamonos_nada_que_hacer:
+    show nostrov enojado
     nostrov "La paranoia te mata más rápido que el frío. No podemos hacer nada por ella. Solo nos quedan 48 horas antes de que el contenedor de Ötzi pierda el frío restante. Vamos por el fusible."
-
+    hide nostrov enojado
     jump almacen_fusible
 
 
 label almacen_fusible:
-    scene bg almacen
+    scene bg laboratorio_entrada
 
     narrador "Al llegar a la puerta del almacen observas que esta completamente tapada de nieve."
-
+    show nostrov enojado
     nostrov "CARAJO!!!. Nos llevará otro día entero quitar todo eso, será mejor que lo hagamos ahora y luego nos retiremos a descansar colega. Estoy seguro de que resolveremos todo a tiempo al siguiente día."
-
+    hide nostrov enojado
     jump siguiente_dia_nostrov
 
 
 label siguiente_dia_nostrov:
+    scene bg sala_comun
+
     narrador "Pasas toda la noche casi congelado y consumido por el miedo, logras conciliar unas horas de sueño hasta que eres despertado por la Dra. Calisto."
+    show calisto preocupada
     calisto "Muchacho levantate vamos, Nostrov dijo que te esperaria en la puerta del almacen para buscar el fusil."
+    hide calisto preocupada
 
     jump buscar_fusible
 
@@ -124,7 +133,9 @@ label buscar_fusible:
 
 
 label nostrov_hora_cero:
+    show nostrov confundido
     nostrov "Llegó la hora cero. Con la llave y el fusible en mano, bajemos a la subestación."
+    hide nostrov confundido
 
     jump sala_generador
 
@@ -154,23 +165,26 @@ label reparar_panel:
 
 
 label panico_generador:
+    show nostrov enojado
     narrador "El pánico te domina. Sueltas la linterna e intentas correr a las escaleras. Tropiezas en la oscuridad entre los cables y caes bruscamente."
     narrador "El fusible de repuesto se desliza de tus manos y cae por una rejilla de ventilación, perdiéndose en los niveles inferiores. Sin la pieza, la energía no regresa a tiempo y el virus se libera en la base."
+    hide nostrov enojado
     narrador "La Dra. Calisto, Nostrov y tu caen muertos en cuestión de minutos..."
 
     jump sala_generador
 
 
 label alerta_alerta:
-    centered "{b}ADVERTENCIA: PATÓGENO ANCESTRAL DETECTADO EN FASE DE PROPAGACIÓN AÉREA.{/b}"
-
-    show nostrov preocupado at center
+    show text "{color=#FF0000}{b}ADVERTENCIA: PATÓGENO ANCESTRAL DETECTADO EN FASE DE PROPAGACIÓN AÉREA.{/b}" at top
+    show nostrov serio
     nostrov "¡El descongelamiento de estos 3 días activo el virus!. Si no re-congelamos la sala ahora mismo, se extenderá por los conductos de aire."
+    hide nostrov serio
 
     jump final_bueno_ruso
 
 
 label final_bueno_ruso:
+    scene bg sala_otzi
     narrador "Ejecutas la secuencia de súper-congelamiento desde la consola de comandos. Un torrente de fluido criogénico inunda el contenedor de Ötzi."
     narrador "En la pantalla ves cómo la temperatura del laboratorio cae drásticamente a -40°C, encapsulando a la momia y al virus en un bloque sólido de hielo. El peligro biológico ha sido neutralizado justo a tiempo."
 
@@ -180,6 +194,7 @@ label final_bueno_ruso:
 label voltear_ver_nostrov:
     show nostrov feliz at center
     narrador "Nostrov exhala una ultima vez y te da una fuerte palmada en la espalda."
+    show nostrov orgullo_ruso
     nostrov "Ni maldiciones ni supersticiones, física y pragmatismo. El virus está atrapado en el hielo de nuevo. Gran trabajo, colega. Ahora esperemos al equipo de rescate."
 
     scene black with fade

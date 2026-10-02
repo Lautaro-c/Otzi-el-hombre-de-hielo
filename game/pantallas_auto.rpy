@@ -46,13 +46,13 @@ screen pantalla_taller_auto():
     if not tiene_pieza:
         use zona((510, 662, 227, 58), "Algo pesado bajo unos escombros", "pieza")
     if not tiene_gato:
-        use zona((77, 757, 156, 295), "Una herramienta metálica en el piso", "gato")
+        use interactImage("Una herramienta metálica en el piso", "gato", 0, 757, "Objetos/gatoIdraulico_%s.png")
     if not tiene_rueda:
-        use zona((1101, 590, 59, 100), "Una pila de neumáticos viejos", "rueda")
+        use interactImage("Una pila de neumáticos viejos", "rueda", 957, 470, "Objetos/rueda_%s.png")
     if not tiene_llave_cruz:
-        use zona((1331, 869, 193, 204), "Un objeto con forma de cruz", "llave_cruz")
+        use interactImage("Un objeto con forma de cruz", "llave_cruz", 1331, 769, "Objetos/llaveEnCruz_%s.png")
     if not tiene_cables:
-        use zona((1445, 288, 81, 160), "Cables enrollados en un rincón", "cables")
+        use interactImage("Cables enrollados en un rincón", "cables", 1445, 288, "Objetos/cables_%s.png")
 
     if tiene_pieza and tiene_gato and tiene_rueda and tiene_llave_cruz and tiene_cables:
         timer 0.1 action Return("listo")
