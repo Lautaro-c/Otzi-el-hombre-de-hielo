@@ -52,6 +52,7 @@ label buscar_llave:
     narrador "Refunfuñando."
     nostrov "Estaba aterrorizada con lo de la maldición. Presiento que intentó hacer alguna estupidez."
 
+    show nostrov preocupado at center
     narrador "Antes de ir al almacén a buscar el fusible, escuchan una alarma distante. La puerta exterior de la base ha sido forzada."
 
     menu:
@@ -87,6 +88,7 @@ label muerte_timor:
     scene bg exterior_nieve
 
     narrador "Regresan a la esclusa para revisar que ocurrió y terminan por encontrar a unos metros afuera, sepultada por la ventisca de la noche, yace el cuerpo congelado de la Dra. Timor. Intentó escapar a pie para huir de la \"maldición\", pero el frío extremo de -35°C la mató en cuestión de minutos."
+    show nostrov serio at center
     narrador "Nostrov observa el cadáver sin inmutarse."
 
     jump vamonos_nada_que_hacer
@@ -124,6 +126,7 @@ label buscar_fusible:
     scene bg almacen
 
     narrador "Llegas al almacén y junto a Nostrov fuerzan la caja de repuestos helada y consigues el fusible de alta capacidad."
+    show nostrov preocupado at center
     narrador "De repente desde los monitores portátiles salta la advertencia, el hielo de Ötzi se está derritiendo y las lecturas muestran la reactivación de un virus ancestral atrapado en sus tejidos."
 
     jump nostrov_hora_cero
@@ -141,7 +144,9 @@ label sala_generador:
     scene bg sala_generador with fade
 
     narrador "Descienden a la subestación. El gran motor diésel está inerte y cubierto de escarcha. Nostrov abre el panel principal."
+    show nostrov serio at center
     nostrov "Sostén la luz. Voy a aflojar las tuercas congeladas con la llave inglesa, tú insertarás el fusible nuevo en cuanto abra la caja."
+    show nostrov preocupado at center
     narrador "Una alarma roja retumba en la sala: El contenedor de Ötzi ha alcanzado temperatura crítica."
 
     menu:
@@ -152,6 +157,7 @@ label sala_generador:
 
 
 label reparar_panel:
+    show nostrov serio at center
     narrador "Sostienes la linterna con firmeza. Nostrov usa la llave inglesa para retirar la pieza dañada y tú encajas el fusible de alta capacidad en su posición."
     narrador "Nostrov acciona la palanca. El motor diésel ruge y la energía regresa a la base. Sin embargo, el monitor central parpadea en rojo..."
 
@@ -186,7 +192,7 @@ label final_bueno_ruso:
 
 
 label voltear_ver_nostrov:
-    scene bg laboratorio_entrada
+    show nostrov feliz at center
     narrador "Nostrov exhala una ultima vez y te da una fuerte palmada en la espalda."
     show nostrov orgullo_ruso
     nostrov "Ni maldiciones ni supersticiones, física y pragmatismo. El virus está atrapado en el hielo de nuevo. Gran trabajo, colega. Ahora esperemos al equipo de rescate."
